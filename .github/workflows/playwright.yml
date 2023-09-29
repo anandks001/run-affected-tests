@@ -13,11 +13,11 @@ jobs:
       run: npm ci
     - name: Get affected list
       id: affected
-      run: echo "::set-output name=files::$(git diff --name-only ${{ github.base_ref }}...${{ github.head_ref }})"
+      run: echo "name=files::$(git diff --name-only ${{ github.base_ref }}...${{ github.head_ref }}) >> $FILES_OUTPUT"
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test ${{steps.affected.outputs.files}}
+      run: npx playwright test ${{FILES_OUTPUT}}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
