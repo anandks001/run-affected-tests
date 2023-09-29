@@ -12,4 +12,9 @@ jobs:
           fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
 
       - name: Get changed files
-        run: echo 'git diff --name-only -r HEAD^1 HEAD'
+        shell: bash
+        run: |
+          git fetch origin main
+          git diff origin/main..HEAD > mydiff
+          echo "mydiff = "
+          cat mydiff
