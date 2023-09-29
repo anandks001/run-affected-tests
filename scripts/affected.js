@@ -12,7 +12,5 @@ const components = (files) => {
 
 
 (() => {
-    const files = exec(`git diff main --name-only -- ${PROJECT_PATH}`).toString().split('\n').slice(0, -1);
-    components(files);
-    exec(`echo "AFFECTED=${components(files)}" >> $GITHUB_ENV`);
+    exec(`echo "FILES=git diff main --name-only -- ${PROJECT_PATH}"`)
 })();
