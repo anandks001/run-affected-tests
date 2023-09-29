@@ -1,9 +1,6 @@
 name: Playwright Tests
 on: push
 
-env:
-  FILES_OUTPUT: ${{affected.FILES_OUTPUT}}
-
 jobs:
   test:
     timeout-minutes: 60
