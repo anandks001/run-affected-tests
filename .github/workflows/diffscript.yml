@@ -1,0 +1,16 @@
+
+name: diff
+
+on: push
+
+jobs:
+  changed_files:
+    runs-on: ubuntu-latest  # windows-latest || macos-latest
+    name: Test changed-files
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
+
+      - name: Get changed files
+        run: node scripts/affected.js
