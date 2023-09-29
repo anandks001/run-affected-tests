@@ -15,7 +15,6 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v39
         with:
-          base_sha: ${{github.event.pull_request.base.ref}}
           path: 'tests-examples/tst'
 
       # NOTE: `since_last_remote_commit: true` is implied by default and falls back to the previous local commit.
