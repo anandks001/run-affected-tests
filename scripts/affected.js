@@ -12,5 +12,5 @@ const components = (files) => {
 
 
 (() => {
-    exec('git fetch origin main && "AFFECTED_FILES=git diff origin/main..HEAD --name-only -- tests-examples/" > $GITHUB_ENV')
+    exec('git fetch origin main' && '"git diff origin/main..HEAD --name-only -- tests-examples/" >> diff_files' && '"AFFECTED_FILES=diff_files" >> $GITHUB_ENV')
 })();
