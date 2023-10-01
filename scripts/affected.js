@@ -12,5 +12,5 @@ const components = (files) => {
 
 
 (() => {
-    exec(`echo "FILES=git diff main --name-only -- ${PROJECT_PATH}"`)
+    exec('git fetch origin main && echo "git diff origin/main..HEAD --name-only -- tests-examples/" > mydiff')
 })();
