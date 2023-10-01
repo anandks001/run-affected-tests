@@ -15,4 +15,4 @@ jobs:
       - name: Get changed files
         run: |
             node scripts/affected.js
-            echo ${{AFFECTED_FILES}}
+            echo ${{env.AFFECTED_FILES}}
