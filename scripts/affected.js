@@ -1,4 +1,4 @@
-const { exec } = require('node:child_process');
+const { execSync } = require('node:child_process');
 
 
 const PROJECT_PATH = 'tests-examples';
@@ -12,5 +12,5 @@ const components = (files) => {
 
 
 (() => {
-    exec('git fetch origin main' && '"git diff origin/main..HEAD --name-only -- tests-examples/" >> diff_files' && '"AFFECTED_FILES=diff_files" >> $GITHUB_ENV')
+    execSync('git fetch origin main' && '"git diff origin/main..HEAD --name-only -- tests-examples/" >> diff_files' && '"AFFECTED_FILES=diff_files" >> $GITHUB_ENV')
 })();
