@@ -1,6 +1,7 @@
-name: CI
 
-on: workflow_dispatch
+name: diff
+
+on: push
 
 jobs:
   changed_files:
@@ -12,9 +13,6 @@ jobs:
           fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
 
       - name: Get changed files
-        shell: bash
         run: |
-          git fetch origin main
-          git diff origin/main..HEAD --name-only -- tests-examples/ > mydiff
-          echo "mydiff = "
-          cat mydiff
+            node scripts/affected.js
+            echo ${{env.AFFECTED}}
