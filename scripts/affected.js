@@ -17,6 +17,6 @@ const files = () => {
 }
 
 (() => {
-    const files = files();
-   exec(`AFFECTED=${files} >> $GITHUB_ENV`)
+    const aff = files();
+   exec(`AFFECTED=${aff} >> $GITHUB_ENV`)
 })();
