@@ -8,9 +8,15 @@ const components = (files) => {
     console.log(temp);
 
     return temp;
+    // execSync('git fetch origin main' && 'echo "git diff origin/main..HEAD --name-only -- tests-examples/" >> diff_files')
 }
 
 
+const files = () => {
+    return execSync('git diff --name-only master...HEAD').toString().split('\n');
+}
+
 (() => {
-    execSync('git fetch origin main' && 'echo "git diff origin/main..HEAD --name-only -- tests-examples/" >> diff_files')
+    const files = files();
+   exec(`AFFECTED=${files} >> $GITHUB_ENV`)
 })();
