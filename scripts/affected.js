@@ -13,7 +13,7 @@ const components = (files) => {
 
 
 const files = () => {
-    return execSync('git fetch affected && git diff affected... --name-only -- tests-examples/').toString().split('\n');
+    return execSync('git fetch main && git diff main... --name-only -- tests-examples/').toString().split('\n');
 }
 
 (() => {
