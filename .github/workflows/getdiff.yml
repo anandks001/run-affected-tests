@@ -16,7 +16,7 @@ jobs:
         run: |
           git fetch origin main
           git diff origin/main..HEAD --name-only -- tests-examples/ > mydiff
-          for file in "${mydiff}";
+          for file in $mydiff;
           do
-            echo "$file"
+            echo $file
           done
