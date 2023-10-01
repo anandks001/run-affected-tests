@@ -18,6 +18,5 @@ jobs:
           git diff origin/main..HEAD --name-only -- tests-examples/ > mydiff
           for file in $mydiff;
           do
-            echo "file ="
-            cat $file
+            echo "$file"
           done
