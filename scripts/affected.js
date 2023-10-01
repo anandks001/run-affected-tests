@@ -1,4 +1,4 @@
-const { execSync } = require('node:child_process');
+const { execSync, exec } = require('node:child_process');
 
 
 const PROJECT_PATH = 'tests-examples';
@@ -13,7 +13,7 @@ const components = (files) => {
 
 
 const files = () => {
-    return execSync('git fetch --no-tags --depth=1000 origin main && git diff origin/main... --name-only -- tests-examples/').toString().split('\n');
+    return exec('git fetch --no-tags --depth=1000 origin main && git diff origin/main... --name-only -- tests-examples/').toString().split('\n');
 }
 
 (() => {
