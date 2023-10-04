@@ -2,4 +2,7 @@
 
 git fetch origin main
 AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-echo "${AFFECTED}"
+arr=(`echo ${AFFECTED}`)
+for s in "${arr[@]}"; do
+    echo "$s"
+done
