@@ -1,7 +1,7 @@
 
 name: diff
 
-on: workflow_dispatch
+on: push
 
 jobs:
   changed_files:

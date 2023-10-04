@@ -1,6 +1,6 @@
 name: CI
 
-on: push
+on: workflow_dispatch
 
 jobs:
   changed_files:
@@ -12,7 +12,6 @@ jobs:
       - name: Get Changed Files
         id: changed_files
         run: |
-          # Assuming 'main' is your base branch, change it if needed.
           CHANGED_FILES=$(git diff --name-only main..HEAD)
           echo "::set-output name=changed_files::$CHANGED_FILES"
 
