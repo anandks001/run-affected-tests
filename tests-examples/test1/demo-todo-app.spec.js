@@ -18,7 +18,7 @@ test.describe('New Todo', () => {
 
     // Create 1st todo.
     await newTodo.fill(TODO_ITEMS[0]);
-    await newTodo.press('Enter');
+    await newTodo.press('Ent er');
 
     // Make sure the list only has one todo item.
     await expect(page.getByTestId('todo-title')).toHaveText([
