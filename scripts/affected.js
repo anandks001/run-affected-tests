@@ -13,6 +13,7 @@ const components = (files) => {
 
 
 const files = () => {
+    exec('echo "I am calling the function"')
     return exec('git fetch origin main && git diff origin/main... --name-only -- tests-examples/');
 }
 
