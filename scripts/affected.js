@@ -18,6 +18,6 @@ const components = (files) => {
 // }
 
 (() => {
-    const aff = exec('git fetch origin main && git diff origin/main... --name-only -- tests-examples/');
-   exec(`AFFECTED=${aff} >> $GITHUB_ENV`)
+    const aff = execSync('git fetch origin main && git diff origin/main... --name-only -- tests-examples/');
+    execSync(`AFFECTED=${aff} >> $GITHUB_ENV`)
 })();
