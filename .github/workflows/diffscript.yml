@@ -15,4 +15,5 @@ jobs:
       - name: Get changed files
         shell: bash
         run: |
+          chmod 777 scripts/affected.sh
           scripts/affected.sh
