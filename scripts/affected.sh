@@ -6,3 +6,4 @@ arr=(`echo ${AFFECTED}`)
 for s in "${arr[@]}"; do
     echo "$s"
 done
+echo "AFFECTED_FILES=${arr}" >> $GITHUB_ENV
