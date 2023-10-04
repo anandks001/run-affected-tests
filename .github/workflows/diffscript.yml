@@ -13,5 +13,6 @@ jobs:
           fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
 
       - name: Get changed files
+        shell: bash
         run: |
           scripts/affected.sh
