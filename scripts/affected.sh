@@ -7,3 +7,5 @@ for s in "${arr[@]}"; do
     echo "$s"
 done
 echo "AFFECTED_FILES=${arr}" >> $GITHUB_ENV
+echo "After setting env"
+echo "${AFFECTED_FILES}"
