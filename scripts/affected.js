@@ -12,12 +12,12 @@ const components = (files) => {
 }
 
 
-const files = () => {
-    exec('echo "I am calling the function"')
-    return exec('git fetch origin main && git diff origin/main... --name-only -- tests-examples/');
-}
+// const files = () => {
+//     exec('echo "I am calling the function"')
+//     return exec('git fetch origin main && git diff origin/main... --name-only -- tests-examples/');
+// }
 
 (() => {
-    const aff = files();
+    const aff = exec('git fetch origin main && git diff origin/main... --name-only -- tests-examples/');
    exec(`AFFECTED=${aff} >> $GITHUB_ENV`)
 })();
