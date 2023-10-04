@@ -13,4 +13,6 @@ jobs:
           fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
 
       - name: Get changed files
-        run: scripts/affected.sh
+        run: |
+          git update-index --chmod=+x scripts/affected.sh
+          scripts/affected.sh
