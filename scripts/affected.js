@@ -18,6 +18,6 @@ const components = (files) => {
 // }
 
 (() => {
-    const aff = execSync('git diff --merge-base HEAD');
+    const aff = execSync('git diff --merge-base main');
     execSync(`AFFECTED=${aff} >> $GITHUB_ENV`)
 })();
