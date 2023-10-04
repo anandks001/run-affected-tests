@@ -13,4 +13,4 @@ jobs:
           fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
 
       - name: Get changed files
-        run: node scripts/affected.js
+        run: scripts/affected.sh
