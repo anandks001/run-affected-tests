@@ -16,7 +16,6 @@ const { execSync } = require('node:child_process');
 //     return execSync('git fetch origin affected && git diff origin/affected... --name-only -- tests-examples/').toString().split('\n');
 // }
 
-(() => {
-    const aff = execSync('git fetch origin +refs/heads/main:refs/remotes/origin/main && git diff --merge-base origin/main HEAD');
-    execSync(`AFFECTED=${aff} >> $GITHUB_ENV`)
+(async () => {
+    await execSync('git fetch origin +refs/heads/main:refs/remotes/origin/main &&  git diff origin/main..HEAD --name-only -- tests-examples/ > mydiff && echo "mydiff = " && cat mydiff');
 })();
