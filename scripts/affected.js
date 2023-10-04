@@ -18,6 +18,6 @@ const components = (files) => {
 // }
 
 (() => {
-    const aff = execSync('git fetch origin main && git diff --merge-base origin/main');
+    const aff = execSync('git fetch origin +refs/heads/main:refs/remotes/origin/main && git diff --merge-base origin/main HEAD');
     execSync(`AFFECTED=${aff} >> $GITHUB_ENV`)
 })();
