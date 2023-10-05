@@ -9,6 +9,6 @@ for s in "${!arr[@]}"; do
 done
 
 FILES=${arr[@]}
-# echo "$FILES"
+echo "$FILES"
 echo "AFFECTED_FILES=$FILES" >> $GITHUB_ENV
 
