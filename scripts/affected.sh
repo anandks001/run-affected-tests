@@ -11,3 +11,4 @@ done
 FILES=${arr[@]}
 echo "$FILES"
 echo "AFFECTED_FILES=${FILES}" >> $GITHUB_ENV
+echo "$AFFECTED_FILES"
