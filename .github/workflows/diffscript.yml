@@ -16,7 +16,7 @@ jobs:
         shell: bash
         run: |
           chmod 777 scripts/test.sh
-          scripts/test.sh
+          ./scripts/test.sh
           echo ${{env.AFFECTED_FILES}}
           echo $AFFECTED_FILES
           echo "$AFFECTED_FILES"
