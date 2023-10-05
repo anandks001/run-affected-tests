@@ -21,4 +21,3 @@ jobs:
           echo $AFFECTED_FILES
           echo "$AFFECTED_FILES"
           echo ${AFFECTED_FILES}
-          echo ${{AFFECTED_FILES}}
