@@ -10,5 +10,6 @@ done
 
 FILES=${arr[@]}
 echo "$FILES"
-echo "AFFECTED_FILES=$FILES" >> $env.GITHUB_ENV
+test="Iamtesting"
+echo "AFFECTED_FILES=$test" >> $GITHUB_ENV
 
