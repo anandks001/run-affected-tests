@@ -18,3 +18,7 @@ jobs:
           chmod 777 scripts/affected.sh
           scripts/affected.sh
           echo ${{env.AFFECTED_FILES}}
+          echo $AFFECTED_FILES
+          echo "$AFFECTED_FILES"
+          echo ${AFFECTED_FILES}
+          echo ${{AFFECTED_FILES}}
