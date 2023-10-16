@@ -1,4 +1,4 @@
-import {exec} from 'node:child_process'
+const exec = require('node:child_process');
 
 import { PROJECT_EXAMPLE } from './env'
 
