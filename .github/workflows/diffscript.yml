@@ -20,4 +20,4 @@ jobs:
           ./scripts/test.sh
           echo ${{env.AFFECTED_FILES}}
           echo $AFFECTED_FILES
-          echo "$AFFECTED_PROJECT"
+          echo $AFFECTED_PROJECT
