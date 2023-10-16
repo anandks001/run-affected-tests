@@ -1,6 +1,6 @@
 const exec = require('node:child_process');
 
-import PROJECT_EXAMPLE from './env'
+PROJECT_EXAMPLE = require('./env');
 
 (() => {
     exec(`echo "AFFECTED_PROJECT=${PROJECT_EXAMPLE}" >> $GITHUB_ENV`)
