@@ -1,2 +1,4 @@
-export const PROJECT_EXAMPLE = '/tests-examples';
-export const PROJECT_TESTS = '/tests';
+const PROJECT_EXAMPLE = '/tests-examples';
+const PROJECT_TESTS = '/tests';
+
+export default PROJECT_EXAMPLE;
