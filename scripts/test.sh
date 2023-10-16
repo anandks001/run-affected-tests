@@ -1,3 +1,3 @@
 test="Iamtesting"
 
-echo "AFFECTED_FILES=$test" >> $env.GITHUB_ENV
+echo "AFFECTED_FILES=$test" >> $GITHUB_ENV

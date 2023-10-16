@@ -2,14 +2,14 @@
 
 git fetch origin main
 AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-arr=(`echo ${AFFECTED}`)
-for s in "${!arr[@]}"; do
+components=(`echo ${AFFECTED}`)
+for s in "${!components[@]}"; do
     component=${arr[$s]#tests-examples/}
-    arr[$s]=${component%/*}/
+    components[$s]=${component%/*}/
 done
 
-FILES=${arr[@]}
+FILES=${components[@]}
 echo "$FILES"
-test="Iamtesting"
-echo "AFFECTED_FILES=$test" >> $GITHUB_ENV
+echo "AFFECTED_FILES=$FILES" >> $GITHUB_ENV
+echo "$AFFECTED_PROJECT"
 
