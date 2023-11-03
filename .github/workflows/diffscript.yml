@@ -16,8 +16,13 @@ jobs:
       - name: Get changed files
         shell: bash
         run: |
-          chmod 777 scripts/test.sh
-          ./scripts/test.sh
-          echo ${{env.AFFECTED_FILES}}
-          echo $AFFECTED_FILES
-          echo $AFFECTED_PROJECT
+          git fetch origin main
+          AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
+          components=(`echo ${AFFECTED}`)
+          for s in "${!components[@]}"; do
+              component=${arr[$s]#tests-examples/}
+              components[$s]=${component%/*}/
+          done
+
+          FILES=${components[@]}
+          echo "$FILES"
