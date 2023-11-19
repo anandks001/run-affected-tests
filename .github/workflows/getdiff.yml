@@ -15,6 +15,7 @@ jobs:
         run: |
           git fetch origin main
           AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
+          echo $AFFECTED
           components=(`echo ${AFFECTED}`)
           for s in "${!components[@]}"; do
               component=${arr[$s]#tests-examples/}
@@ -22,3 +23,4 @@ jobs:
           done
 
           FILES=${components[@]}
+          echo $FILES
