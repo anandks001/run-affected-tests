@@ -18,6 +18,7 @@ jobs:
           for i in $AFFECTED; do
               FILE=$i
               FILE1=${FILE##tests-examples}
-              FILE2=${FILE1%/*}
-              echo $FILE2
+              AFFECTED[i]=${FILE1%/*}
+              echo $AFFECTED[i]
           done
+          echo $AFFECTED
