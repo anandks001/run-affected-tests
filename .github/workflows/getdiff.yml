@@ -17,5 +17,7 @@ jobs:
           AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
           echo $AFFECTED
           for i in $AFFECTED; do
-              echo ${$AFFECTED[i]#tests-examples/}
+              FILE=$i
+              FILE=FILE%tests-examples
+              echo $FILE
           done
