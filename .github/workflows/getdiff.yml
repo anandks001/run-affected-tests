@@ -11,6 +11,7 @@ jobs:
         with:
           fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
       - name: Get affected project
+        shell: bash
         run: |
           node scripts/aff.js
           echo $AFFECTED_PROJECT

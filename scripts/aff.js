@@ -1,4 +1,4 @@
-const exec = require('node:child_process');
+const exec = require('child_process').exec;
 
 PROJECT_EXAMPLE = require('./env').default;
 
