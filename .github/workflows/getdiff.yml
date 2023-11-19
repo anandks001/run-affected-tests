@@ -18,6 +18,8 @@ jobs:
           echo $AFFECTED
           for i in $AFFECTED; do
               FILE=$i
-              FILE=${FILE%tests-examples*}
-              echo $FILE
+              FILE2=${FILE%%tests-examples}
+              echo $FILE2
+              FILE1=${FILE##tests-examples}
+              echo $FILE1
           done
