@@ -17,10 +17,10 @@ jobs:
           git fetch origin main
           AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
           for i in "${#AFFECTED[@]}"; do
-              FILE=${AFFECTED[$i]##tests-examples/}
-              echo $FILE
-              AFFECTED[$i]=${FILE%/*}
-              echo $AFFECTED[$i]
+              FILE1=${AFFECTED[$i]##tests-examples/}
+              echo $FILE1
+              AFFECTED[$i]=${FILE1%/*}
+              echo ${AFFECTED[$i]}
           done
           echo $AFFECTED
 
