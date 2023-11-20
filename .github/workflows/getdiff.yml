@@ -18,8 +18,8 @@ jobs:
         run: |
           git fetch origin main
           diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          echo 'AFFECTED<<EOF' >> $GITHUB_OUTPUT
-          echo $diff >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          echo "AFFECTED<<EOF" >> $GITHUB_OUTPUT
+          echo "$diff" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       - name: Get list
         run: echo $affected
