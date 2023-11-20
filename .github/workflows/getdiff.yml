@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test changed-files
     outputs:
-      affected: ${{ steps.affected.outputs.AFFECTED }}
+      affected: ${{ fromJson(steps.affected.outputs.AFFECTED) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,6 +19,6 @@ jobs:
           git fetch origin main
           diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
           echo "AFFECTED: $diff"
-          echo "AFFECTED=$diff" >> "$GITHUB_OUTPUT"
+          { echo "AFFECTED=toJson($diff)" } >> "$GITHUB_OUTPUT"
       - name: Get list
         run: echo $affected
