@@ -17,8 +17,6 @@ jobs:
         id: affected
         run: |
           git fetch origin main
-          readarray -t AFFECTED << (git diff origin/main..HEAD --name-only -- tests-examples/)
-
-          echo '$AFFECTED' >> $GITHUB_OUTPUT
+          echo "::set-output name=AFFECTED::$(git diff origin/main..HEAD --name-only -- tests-examples/)"
       - name: Get list
         run: echo $affected
