@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test changed-files
     outputs:
-      affected: ${{ fromJson(steps.affected.outputs.AFFECTED) }}
+      affected: ${{ steps.affected.outputs.AFFECTED }}
     steps:
       - uses: actions/checkout@v4
         with:
