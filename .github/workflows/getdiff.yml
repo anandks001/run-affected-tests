@@ -18,8 +18,10 @@ jobs:
         run: |
           git fetch origin main
           # diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          echo "AFFECTED<<EOF" >> "$GITHUB_OUTPUT"
-          echo "$(git diff origin/main..HEAD --name-only -- tests-examples/)" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          {
+          echo 'AFFECTED<<EOF'
+          '$(git diff origin/main..HEAD --name-only -- tests-examples/)'
+          echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
       - name: Get list
         run: echo $files
