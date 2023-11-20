@@ -7,17 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     name: Test changed-files
     outputs:
-      files: ${{ fromJson(steps.affected.outputs.AFFECTED) }}
+      files: ${{ fromJson(steps.get_files.outputs.AFFECTED) }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Get changed files
         shell: bash
-        id: affected
+        id: get_files
         run: |
           git fetch origin main
-          diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          echo "AFFECTED=$diff" >> "$GITHUB_OUTPUT"
+          # diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
+          echo "AFFECTED<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$(git diff origin/main..HEAD --name-only -- tests-examples/)" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
       - name: Get list
         run: echo $files
