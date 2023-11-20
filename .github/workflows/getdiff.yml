@@ -18,7 +18,7 @@ jobs:
         run: |
           git fetch origin main
           diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          echo "AFFECTED: $diff"
+          echo "AFFECTED: join($diff, ',')"
           echo "AFFECTED=join($diff, ',')" >> "$GITHUB_OUTPUT"
       - name: Get list
         run: echo $affected
