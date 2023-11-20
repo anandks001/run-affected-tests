@@ -19,7 +19,7 @@ jobs:
           for i in $AFFECTED; do
               FILE=$i
               FILE1=${FILE##tests-examples}
-              AFFECTED[$i]=${FILE1%/*}
+              i=${FILE1%/*}
           done
           echo $AFFECTED
 
