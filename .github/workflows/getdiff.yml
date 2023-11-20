@@ -17,9 +17,8 @@ jobs:
         id: affected
         run: |
           git fetch origin main
-          AFFECTED=("$(git diff origin/main..HEAD --name-only -- tests-examples/ | grep "^.\w" | cut -c 4-)")
+          readarray -t AFFECTED < < $(git diff origin/main..HEAD --name-only -- tests-examples/)
 
-          echo "$AFFECTED" >> $GITHUB_OUTPUT
-          echo $AFFECTED
+          echo '$AFFECTED' >> $GITHUB_OUTPUT
       - name: Get list
         run: echo $affected
