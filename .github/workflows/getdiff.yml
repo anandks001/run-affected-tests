@@ -18,8 +18,8 @@ jobs:
           AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
           for i in $AFFECTED; do
               FILE=$i
-              FILE1=${FILE##tests-examples}
-              i=${FILE1%/*}
+              FILE1=${FILE##tests-examples/}
+              AFFECTED[i]=${FILE1%/*}
           done
           echo $AFFECTED
 
