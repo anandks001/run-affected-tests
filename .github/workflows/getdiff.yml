@@ -18,6 +18,6 @@ jobs:
         run: |
           git fetch origin main
           AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          echo $AFFECTED >> "$GITHUB_OUTPUT"
+          echo "$AFFECTED" >> "$GITHUB_OUTPUT"
       - name: Get list
-        run: echo $affected
+        run: echo "$affected"
