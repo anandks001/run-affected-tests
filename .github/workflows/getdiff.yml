@@ -19,9 +19,8 @@ jobs:
           for i in "${#AFFECTED[@]}"; do
               FILE=${AFFECTED[i]##tests-examples/}
               AFFECTED[i]=${FILE%/*}
+              echo $AFFECTED
           done
           echo "$AFFECTED" >> "$GITHUB_OUTPUT"
-    outputs:
-      affected: ${{steps.affected.outputs.AFFECTED}}
 
 
