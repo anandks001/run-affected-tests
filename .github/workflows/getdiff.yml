@@ -17,11 +17,10 @@ jobs:
         id: get_files
         run: |
           git fetch origin main
-          # diff=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          {
-          echo 'AFFECTED<</n'
-          '$(git diff origin/main..HEAD --name-only -- tests-examples/)'
-          echo '/n'
-          } >> "$GITHUB_OUTPUT"
+          DIFF=$(git diff origin/main..HEAD --name-only -- tests-examples/)
+          DIFF="${DIFF//'%'/'%25'}"
+          DIFF="${DIFF//$'\n'/'%0A'}"
+          DIFF="${DIFF//$'\r'/'%0D'}"
+          echo "DIFF=$DIFF" >> "$GITHUB_OUTPUT"
       - name: Get list
         run: echo $files
