@@ -16,6 +16,6 @@ jobs:
         run: |
           git fetch origin main
           FILES=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          "FILES=$FILES" >> $GITHUB_ENV
+          "FILES=$FILES" >> "$GITHUB_ENV"
       - name: Get list
         run: echo ${{env.FILES}}
