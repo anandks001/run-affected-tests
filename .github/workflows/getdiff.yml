@@ -14,8 +14,9 @@ jobs:
         shell: bash
         id: get_files
         run: |
-          git fetch origin main
-          FILES=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          "FILES=$FILES" >> "$GITHUB_ENV"
+          changedServices=()
+          while IFS= read -r line; do
+          changedServices+=("${line}")
+          done < <($(git diff origin/main..HEAD --name-only -- tests-examples/) | awk -F'/' 'NF!=1{print $1}' | sort -u)
       - name: Get list
-        run: echo ${{env.FILES}}
+        run: echo $changedServices
