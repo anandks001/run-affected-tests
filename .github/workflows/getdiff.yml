@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test changed-files
     outputs:
-      files: ${{ fromJson(steps.get_files.outputs.AFFECTED) }}
+      files: ${{ steps.get_files.outputs.AFFECTED }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -18,9 +18,6 @@ jobs:
         run: |
           git fetch origin main
           DIFF=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-          DIFF="${DIFF//'%'/'%25'}"
-          DIFF="${DIFF//$'\n'/'%0A'}"
-          DIFF="${DIFF//$'\r'/'%0D'}"
-          echo "DIFF=$DIFF" >> "$GITHUB_OUTPUT"
+          echo "DIFF=$DIFF"
       - name: Get list
         run: echo $files
