@@ -1,15 +1,29 @@
 #!/bin/bash
 
 git fetch origin main
-AFFECTED=$(git diff origin/main..HEAD --name-only -- tests-examples/)
-components=(`echo ${AFFECTED}`)
-for s in "${!components[@]}"; do
-    component=${arr[$s]#tests-examples/}
-    components[$s]=${component%/*}/
+#!/bin/bash
+
+# Get the list of changed files in the pull request
+changed_files=$(git diff origin/main..HEAD --name-only -- tests-examples/)
+
+# Define a pattern to match component files (adjust as needed)
+component_pattern=".*/src/.*\.js"
+
+# Extract the affected components
+affected_components=()
+
+for file in $changed_files; do
+  if [[ $file =~ $component_pattern ]]; then
+    # Extract the component name from the file path (adjust as needed)
+    component_name=$(echo "$file" | sed -n 's|.*/src/\(.*\)\.js|\1|p')
+    affected_components+=("$component_name")
+  fi
 done
 
-FILES=${components[@]}
-echo "$FILES"
-echo "AFFECTED_FILES=$FILES" >> $GITHUB_ENV
-echo "$AFFECTED_PROJECT"
+# Deduplicate the list of affected components
+affected_components=($(echo "${affected_components[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+# Print the list of affected components
+echo "${affected_components[@]}"
+
 

@@ -14,9 +14,4 @@ jobs:
         shell: bash
         id: get_files
         run: |
-          changedServices=()
-          while IFS= read -r line; do
-          changedServices+=("${line}")
-          done << ($(git diff origin/main..HEAD --name-only -- tests-examples/) | awk -F'/' 'NF!=1{print $1}' )
-      - name: Get list
-        run: echo $changedServices
+          ./scripts/affected.sh
