@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Get the list of changed files in the pull request
-changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+git fetch origin main
+changed_files=$(git diff origin/main..HEAD --name-only -- tests-examples/)
 
 # Print the list of affected file names
 echo "${changed_files[@]}"
