@@ -7,7 +7,7 @@ git fetch origin main
 changed_files=$(git diff origin/main..HEAD --name-only -- tests-examples/)
 
 # Define a pattern to match component files (adjust as needed)
-component_pattern=".*/src/.*\.js"
+component_pattern="tests-examples/"
 
 # Extract the affected components
 affected_components=()
@@ -15,7 +15,7 @@ affected_components=()
 for file in $changed_files; do
   if [[ $file =~ $component_pattern ]]; then
     # Extract the component name from the file path (adjust as needed)
-    component_name=$(echo "$file" | sed -n 's|.*/src/\(.*\)\.js|\1|p')
+    component_name=$(echo "$file" | sed -n 's|.*/tests-examples/\(.*\)\.js|\1|p')
     affected_components+=("$component_name")
   fi
 done
