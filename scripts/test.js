@@ -5,9 +5,8 @@
         throw new Error('No affected files found');
     }
 
-    files.forEach(item => {
-        console.log("Files from script:", item);
-    });
+    console.log(files[0]);
+    console.log(files[3]);
 
 
     // const deepList = (await Promise.all(Object.values(Project).map((project) => {
