@@ -8,6 +8,8 @@
     files.forEach(item => {
         console.log("Files from script:", item);
     });
+
+
     // const deepList = (await Promise.all(Object.values(Project).map((project) => {
     //     return getTenantItems(project, framework);
     // }))).flat().filter(Boolean);
