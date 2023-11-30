@@ -5,8 +5,8 @@
         throw new Error('No affected files found');
     }
 
-    console.log(files[0]);
-    console.log(files[3]);
+    console.log(files);
+
 
 
     // const deepList = (await Promise.all(Object.values(Project).map((project) => {
