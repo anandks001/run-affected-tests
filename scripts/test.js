@@ -1,6 +1,6 @@
 (async () => {
     let files = [];
-    files = process.argv[2]
+    files = process.argv
     if (files.length === 0) {
         throw new Error('No affected files found');
     }
