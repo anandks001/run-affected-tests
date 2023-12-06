@@ -7,9 +7,8 @@
     console.log('files:', files);
 
     for(let i = 2; i < files.length ; i++){
-        console.log(files[i]);
+        console.log(files[i].split('tests-examples/'));
     }
-
 })().catch((error) => {
     console.log(error);
     process.exit(1);
